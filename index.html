@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/CSS/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>devray.ca</title>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <div class="navbar">
+            <div class="navbar-icon">
+                <div class="icon-text">~/Ray_Bao</div>
+            </div>
+            <div class="nav-list">
+                    <div onclick="showSection('home-wrapper')" class="nav-item">
+                        <p class="nav-text">/ about</p>
+                    </div>
+                    <div class="nav-item" onclick="showSection('skills')">
+                        <p class="nav-text">/ skills</p>
+                    </div>
+                    <div onclick="showSection('experience-wrapper')" class="nav-item">
+                        <p class="nav-text">/ experience</p>
+                    </div>
+                    <div onclick="showSection('project-gallery')" class="nav-item">
+                        <p class="nav-text">/ projects</p>
+                    </div>
+                    <div onclick="showSection('contact-wrapper')" class="nav-item">
+                        <p class="nav-text">/ contact</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div id="content" class="content">
+        <div class="home-wrapper">
+            <div class="home-content">
+                <div class="svg-wrapper">
+                    <svg fill="#000000" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke="var(--main)" stroke-width="0.5" fill="var(--bg)" stroke-dasharray="" stroke-dashoffset="" d="M13.1,33.92c0,1.06,.72,1.98,1.74,2.24l3.12,.79,3.01,6.04c.18,.36,.49,.63,.87,.76,.38,.13,.79,.1,1.16-.08,.29-.15,.53-.39,.67-.68l1.99-4.07,1.68,.43,3.5,19.66c.23,1.29,2.11,1.3,2.33,0l3.5-19.66,1.68-.43,1.99,4.06c.18,.36,.48,.63,.87,.76,.38,.13,.79,.1,1.15-.07,.3-.15,.54-.39,.68-.68l3.01-6.04,3.12-.79c1.03-.26,1.74-1.18,1.74-2.24v-14.63c0-.95-.45-1.86-1.21-2.44L33.42,4.48c-.84-.64-2-.64-2.84,0L14.31,16.86c-.76,.58-1.21,1.49-1.21,2.44v14.63Zm9.22,7.29l-1.8-3.6,3.16,.81-1.37,2.79Zm9.68,12.92l-2.53-14.23,1.29,.33c.41,.1,.82,.16,1.24,.16s.83-.05,1.24-.16l1.29-.33-2.53,14.23Zm.74-15.84c-.48,.12-1,.12-1.49,0l-4.69-1.2,5.44-11.09,5.43,11.09-4.69,1.2Zm8.94,2.92l-1.37-2.79,3.16-.81-1.8,3.6ZM15.1,19.3c0-.33,.16-.65,.42-.84L31.79,6.07c.12-.09,.29-.09,.42,0l16.27,12.38c.26,.2,.42,.52,.42,.85v14.63c0,.14-.1,.27-.24,.31l-9.25,2.36-5.62-11.46c-.24-.48-.64-.84-1.15-1.01-.51-.17-1.05-.14-1.53,.1-.4,.19-.72,.52-.92,.92l-5.62,11.46-9.25-2.36c-.14-.04-.24-.16-.24-.31v-14.63Z"/>
+                    </svg>
+                </div>
+                
+                <div class="home-text">
+                    <p><div class = "timestamp"></div> [raybao@devray]: ~/Ray_Bao/$ who</p>
+                    <h1>
+                        Hi, I'm Ray Bao
+                    </h1>
+                    <p>
+                        I'm a 3rd year student currently majoring in Computer Science - Artificial Intelligence with a minor in Economics at McGill University. My strongest area of development is in Full-stack web development, with a focus on back-end scripting. I'm currently seeking full time internships or part-time employment opportunities in software development roles!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="skills" style="display: none">
+            <div class="skills-content">
+                <div class="skills-text">
+                    <br><br><br>
+                    <div class="header-title">
+                        <h1>technical proficiency</h1>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill">
+                            <center><img src="static/images/html5-logo.png" alt="HTML5"></center>
+                            <h3>HTML5</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                        <div class="skill">
+                            <center><img src="static/images/css3.png" alt="HTML5"></center>
+                            <h3>CSS3</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                        <div class="skill">
+                            <center><img src="static/images/js.png" alt="HTML5"></center>
+                            <h3>JavaScript</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                        <div class="skill">
+                            <center><img src="static/images/python.png" alt="HTML5"></center>
+                            <h3>Python</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                        <div class="skill">
+                            <img src="mysql-logo.png" alt="MySQL">
+                            <h3>MySQL</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                        <div class="skill">
+                            <img src="mysql-logo.png" alt="MySQL">
+                            <h3>MySQL</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                        <div class="skill">
+                            <img src="mysql-logo.png" alt="MySQL">
+                            <h3>MySQL</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div> 
+                        <div class="skill">
+                            <img src="mysql-logo.png" alt="MySQL">
+                            <h3>MySQL</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                        <div class="skill">
+                            <img src="mysql-logo.png" alt="MySQL">
+                            <h3>MySQL</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="experience-wrapper" style="display: none">
+            <div class="experience-content">
+                <div class="experience-text">
+                    <br><br>
+                    <p><div class ="timestamp"></div> [raybao@devray]: ~/Ray_Bao/$ ls experiences</p>
+                    <div class="header-title">
+                        <h1>work experience</h1>
+                    </div>
+                    <br><br>
+                    <div class="experience-title">
+                        Glass Consulting Services Fibre Designer (2023-Present)
+                    <div class="experience-description">
+                        Responsible for designing how Bell fiber-optic cables should be placed in Bell Fiber Distribution Service Areas. Built a company website to increase online presence
+                        and attract potential clients.
+                        <br><br>
+                        Accomplishments:
+                        <br><br>
+                        • Front-end development using HTML, CSS, and JS to create a visually appealing website for the company.
+                        <br>
+                        • Project planning and team coordination through a rigorous quality control process to design and issue
+                        Fiber Service Areas to Bell for construction.
+                        <br><br>
+                        / LEARN MORE
+                    </div>
+                    </div>
+
+                    <div class="experience-title">
+                        Nokia Future Tech Intern (2021 Summer)
+                    <div class="experience-description">
+                        Worked as a PHP developer alongside a senior network architect to automate testing for proof of concept network
+                        topologies on Nokia's SR Linux Network Operation System. Integrated a web application-based interface with
+                        the deployment of containerized network topologies.
+                        <br><br>
+                        Accomplishments:
+                        <br><br>
+                        • Created a user-friendly custom web interface for testing proof of concept network topologies.
+                        <br>
+                        • Employed basic understanding of IP networks and routing in order to build full and half mesh network
+                        topologies with virtual containerized SR Linux routers using Containerlab.
+                        <br>
+                        • Integrated Containerlab with PHP to allow proof of concept network topologies to be more efficiently
+                        constructed and deployed from a web app-based GUI as opposed to the standard Containerlab CLI.
+                        <br><br>
+                        / LEARN MORE
+                    </div>
+                    </div>
+                    <div class="experience-title">
+                        Digitera Interactive Full Stack Web Developer (2020 Summer)
+                        <div class="experience-description">
+                            Integrated PayPal's REST API with a custom interface to enable PayPal subscription to Leadfeast.
+                            <br><br>
+                            Accomplishments:
+                            <br><br>
+                            • Completed a front-end interface design using HTML, JS, and CSS to improve user experience.
+                            <br>
+                            • Worked with an Apache Web Server on a XAMPP stack to integrate back-end PHP scripting and a MySQL
+                            database with PayPal's REST API to deliver a functioning subscription service.
+                            <br><br>
+                        / LEARN MORE
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="project-gallery" style="display: none">
+            <div class="project-content">
+                <br><br><br>
+                <div class="header-title">
+                    <h1>past projects</h1>
+                </div>
+            </div>
+        </div>
+        <div class="contact-wrapper" style="display: none">
+            <div class="contact-content">
+                <div class="contact-text">
+                    <br><br><br>
+                    <div class="header-title">
+                        <h1>get in touch</h1>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script src="static/JS/script.js">
+    </script>
+    <script src="static/JS/rayScript.js"></script>
+</body>
+</html>

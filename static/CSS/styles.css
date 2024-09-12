@@ -1,0 +1,293 @@
+:root{
+    --bg: #181818;
+    --main: #50C878;
+    --secondary: #9FE2BF;
+    --text: #FAF9F6;
+}
+
+body{
+    background-color: var(--bg);
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size:4em;
+}
+
+.timestamp{
+    display: inline-block;
+}
+
+
+::selection {
+    /* Change highlight background color to black */
+    background: black;
+    /* Change highlight text color to red */
+    color: var(--main);
+  }
+  
+.header-title{
+    display:flex;
+    width: fit-content;
+    background-color: transparent;
+}
+
+.header-title h1 {
+    font-size: 4em;
+    margin: 0; /* Removes default margins */
+    padding: 0; /* Ensures there's no padding adding extra space */
+}
+
+.nav-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: var(--bg);
+    border-bottom: 4px solid var(--main);
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: var(--text);
+    padding: 0.2em;
+    max-height: 6em;   
+}
+
+.icon{
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.icon img{
+    z-index: 100;
+}
+
+.icon-text{
+    padding: 0.5em;
+    justify-self: center;
+    box-sizing: border-box;
+}
+
+.navbar-icon{
+    display: flex;
+    padding:0.2em;
+    align-items: center;
+    z-index:100;
+}
+
+.navbar-icon:hover{
+    cursor: pointer;
+}
+
+.nav-list{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right:0;
+    list-style: none;
+    margin: 0;
+    padding: 2em;
+}
+
+.nav-item {
+    display: inline-block;
+    position:relative;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    padding-right: 0.2rem;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%; /* Start with no underline */
+    height: 2px; /* Adjust the thickness of the underline */
+    background-color: var(--main); /* Adjust the underline color as needed */
+    transition: width 0.5s ease; /* Adjust the animation speed and easing */
+}
+
+.nav-item:hover::after {
+    width: 100%; /* Full width underline on hover */
+}
+
+.nav-item:hover{
+    cursor: pointer;
+}
+
+.dpkCursor {
+    height: 0.75rem;
+    width: 0.75rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: var(--text);
+    border: 2px solid var(--text);
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999;
+  }
+
+.content{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#content > div {
+    display: none; /* Hide all divs inside #content */
+    visibility: hidden; /* Hide the content by default */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear; /* Adjust time as needed */
+}
+
+#content > div.show {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.5s linear; /* Adjust time as needed */
+}
+
+
+#content > .home-wrapper {
+    display: flex; /* Show only the home wrapper */
+}
+
+#content > .experience-wrapper {
+    display: flex; /* Show only the home wrapper */
+}
+
+#content > .project-gallery {
+    display: flex; /* Show only the home wrapper */
+}
+
+.skills {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.skill {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.skill img {
+    width: 80px;
+    height: 80px;
+}
+
+
+.experience-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+
+.experience-title{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 1em;
+    font-size: large;
+    border-top: var(--secondary) 4px double;
+}
+
+.experience-description{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+    font-size: small;
+}
+
+
+.project-gallery{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+
+.contact-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+
+.home-wrapper {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Occupy the height of the viewport */
+    width: 100vw; /* Occupy the width of the viewport */
+}
+
+.home-content {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+#stingrayConstellation {
+    /* Adjust size as needed to fit within .svg-wrapper */
+    max-width: 90%; /* Example to avoid overflow */
+    max-height: 90%; /* Adjust based on your SVG's aspect ratio */
+}
+
+.svg-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+
+svg {
+    width: 90vw;
+    height: auto;
+    top: 1000;
+}
+
+.home-text{
+    color:var(--text);
+}
