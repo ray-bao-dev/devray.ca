@@ -14,7 +14,7 @@ body{
 }
 
 h1 {
-    font-size:4em;
+    font-size: 3.5em; /* Reduced from 4em */
 }
 
 .timestamp{
@@ -36,7 +36,7 @@ h1 {
 }
 
 .header-title h1 {
-    font-size: 4em;
+    font-size: 3.5em; /* Reduced from 4em */
     margin: 0; /* Removes default margins */
     padding: 0; /* Ensures there's no padding adding extra space */
 }
@@ -181,27 +181,143 @@ h1 {
     align-items: left;
     flex-direction: column;
     color: var(--text);
-    padding: 2em;
+    padding: 1.5em; /* Reduced from 2em */
 }
+
+.skills-categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 60px 50px; /* Increased from 50px 40px to 60px 50px */
+}
+
+.skill-category {
+    break-inside: avoid; /* Prevents a category from splitting across columns */
+    page-break-inside: avoid; /* For older browsers */
+}
+
+.skill-category h2 {
+    font-size: 1.1em; /* Reduced from 1.2em */
+    margin-bottom: 10px; /* Slightly reduced from 12px */
+    color: var(--main);
+    border-bottom: 2px solid var(--main);
+    padding-bottom: 4px; /* Slightly reduced from 5px */
+}
+
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fill, 180px); /* Keep the fixed width columns */
+    gap: 35px; /* Increased from 30px to 35px */
+    justify-content: start; /* Keep left alignment */
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 992px) {
+    .skills-categories {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+    
+    .skills-grid {
+        justify-content: center; /* Center align on smaller screens */
+        gap: 30px; /* Increased from 25px to 30px for smaller screens */
+    }
 }
 
 .skill {
-    background-color: #444;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    width: 180px;
+    height: 180px;
+    padding: 15px; /* Slightly increased padding */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--bg);
+    border: 1px solid rgba(80, 200, 120, 0.3);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill:hover {
+    transform: scale(1.05);
+    border-color: var(--main);
+    box-shadow: 0 4px 8px rgba(80, 200, 120, 0.2);
 }
 
 .skill img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 8px;
 }
 
+.skill h3 {
+    font-size: 0.9em;
+    margin: 4px 0;
+    color: var(--main);
+}
+
+.skill-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(24, 24, 24, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 10px;
+}
+
+.skill:hover .skill-description {
+    opacity: 1;
+}
+
+.skill-description p {
+    font-size: 0.75em;
+    color: var(--text);
+    margin: 0;
+}
+
+.overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.overlay.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.close-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--main);
+}
 
 .experience-wrapper{
     display: flex;
@@ -290,4 +406,11 @@ svg {
 
 .home-text{
     color:var(--text);
+}
+
+.skill img {
+    width: 60px; /* Increased from 50px */
+    height: 60px; /* Increased from 50px */
+    object-fit: contain;
+    margin-bottom: 8px; /* Reduced from 10px */
 }
