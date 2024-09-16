@@ -1,0 +1,416 @@
+:root{
+    --bg: #181818;
+    --main: #50C878;
+    --secondary: #9FE2BF;
+    --text: #FAF9F6;
+}
+
+body{
+    background-color: var(--bg);
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 3.5em; /* Reduced from 4em */
+}
+
+.timestamp{
+    display: inline-block;
+}
+
+
+::selection {
+    /* Change highlight background color to black */
+    background: black;
+    /* Change highlight text color to red */
+    color: var(--main);
+  }
+  
+.header-title{
+    display:flex;
+    width: fit-content;
+    background-color: transparent;
+}
+
+.header-title h1 {
+    font-size: 3.5em; /* Reduced from 4em */
+    margin: 0; /* Removes default margins */
+    padding: 0; /* Ensures there's no padding adding extra space */
+}
+
+.nav-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: var(--bg);
+    border-bottom: 4px solid var(--main);
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: var(--text);
+    padding: 0.2em;
+    max-height: 6em;   
+}
+
+.icon{
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.icon img{
+    z-index: 100;
+}
+
+.icon-text{
+    padding: 0.5em;
+    justify-self: center;
+    box-sizing: border-box;
+}
+
+.navbar-icon{
+    display: flex;
+    padding:0.2em;
+    align-items: center;
+    z-index:100;
+}
+
+.navbar-icon:hover{
+    cursor: pointer;
+}
+
+.nav-list{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right:0;
+    list-style: none;
+    margin: 0;
+    padding: 2em;
+}
+
+.nav-item {
+    display: inline-block;
+    position:relative;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    padding-right: 0.2rem;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%; /* Start with no underline */
+    height: 2px; /* Adjust the thickness of the underline */
+    background-color: var(--main); /* Adjust the underline color as needed */
+    transition: width 0.5s ease; /* Adjust the animation speed and easing */
+}
+
+.nav-item:hover::after {
+    width: 100%; /* Full width underline on hover */
+}
+
+.nav-item:hover{
+    cursor: pointer;
+}
+
+.dpkCursor {
+    height: 0.75rem;
+    width: 0.75rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: var(--text);
+    border: 2px solid var(--text);
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999;
+  }
+
+.content{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#content > div {
+    display: none; /* Hide all divs inside #content */
+    visibility: hidden; /* Hide the content by default */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear; /* Adjust time as needed */
+}
+
+#content > div.show {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.5s linear; /* Adjust time as needed */
+}
+
+
+#content > .home-wrapper {
+    display: flex; /* Show only the home wrapper */
+}
+
+#content > .experience-wrapper {
+    display: flex; /* Show only the home wrapper */
+}
+
+#content > .project-gallery {
+    display: flex; /* Show only the home wrapper */
+}
+
+.skills {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 1.5em; /* Reduced from 2em */
+}
+
+.skills-categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 60px 50px; /* Increased from 50px 40px to 60px 50px */
+}
+
+.skill-category {
+    break-inside: avoid; /* Prevents a category from splitting across columns */
+    page-break-inside: avoid; /* For older browsers */
+}
+
+.skill-category h2 {
+    font-size: 1.1em; /* Reduced from 1.2em */
+    margin-bottom: 10px; /* Slightly reduced from 12px */
+    color: var(--main);
+    border-bottom: 2px solid var(--main);
+    padding-bottom: 4px; /* Slightly reduced from 5px */
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 180px); /* Keep the fixed width columns */
+    gap: 35px; /* Increased from 30px to 35px */
+    justify-content: start; /* Keep left alignment */
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 992px) {
+    .skills-categories {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+    
+    .skills-grid {
+        justify-content: center; /* Center align on smaller screens */
+        gap: 30px; /* Increased from 25px to 30px for smaller screens */
+    }
+}
+
+.skill {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    padding: 15px; /* Slightly increased padding */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--bg);
+    border: 1px solid rgba(80, 200, 120, 0.3);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill:hover {
+    transform: scale(1.05);
+    border-color: var(--main);
+    box-shadow: 0 4px 8px rgba(80, 200, 120, 0.2);
+}
+
+.skill img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.skill h3 {
+    font-size: 0.9em;
+    margin: 4px 0;
+    color: var(--main);
+}
+
+.skill-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(24, 24, 24, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 10px;
+}
+
+.skill:hover .skill-description {
+    opacity: 1;
+}
+
+.skill-description p {
+    font-size: 0.75em;
+    color: var(--text);
+    margin: 0;
+}
+
+.overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.overlay.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.close-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--main);
+}
+
+.experience-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+
+.experience-title{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 1em;
+    font-size: large;
+    border-top: var(--secondary) 4px double;
+}
+
+.experience-description{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+    font-size: small;
+}
+
+
+.project-gallery{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+
+.contact-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+
+.home-wrapper {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Occupy the height of the viewport */
+    width: 100vw; /* Occupy the width of the viewport */
+}
+
+.home-content {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+#stingrayConstellation {
+    /* Adjust size as needed to fit within .svg-wrapper */
+    max-width: 90%; /* Example to avoid overflow */
+    max-height: 90%; /* Adjust based on your SVG's aspect ratio */
+}
+
+.svg-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+
+svg {
+    width: 90vw;
+    height: auto;
+    top: 1000;
+}
+
+.home-text{
+    color:var(--text);
+}
+
+.skill img {
+    width: 60px; /* Increased from 50px */
+    height: 60px; /* Increased from 50px */
+    object-fit: contain;
+    margin-bottom: 8px; /* Reduced from 10px */
+}
