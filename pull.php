@@ -3,3 +3,4 @@
 if ( $_POST['payload'] ) {
    shell_exec('cd ~/public_html && git pull');
 }
+?>
