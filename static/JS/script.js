@@ -126,4 +126,13 @@ function updateTimestamp() {
     showSection('home-wrapper'); // Show the home section by default
   })
   
-  
+  document.addEventListener('DOMContentLoaded', function() {
+    const experienceHeaders = document.querySelectorAll('.experience-header');
+
+    experienceHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const experienceItem = this.parentElement;
+            experienceItem.classList.toggle('active');
+        });
+    });
+});
