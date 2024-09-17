@@ -1,4 +1,3 @@
-
 const dpkCursor = document.createElement("div");
 dpkCursor.classList.add("dpkCursor");
 document.body.appendChild(dpkCursor);
@@ -121,19 +120,9 @@ function updateTimestamp() {
       }, 10); // Short delay to ensure the class removal has processed
   
       currentSection = newSection; // Update the current visible section
+      
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     showSection('home-wrapper'); // Show the home section by default
   })
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    const experienceHeaders = document.querySelectorAll('.experience-header');
-
-    experienceHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            const experienceItem = this.parentElement;
-            experienceItem.classList.toggle('active');
-        });
-    });
-});

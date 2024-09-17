@@ -90,7 +90,7 @@ h1 {
     padding: 0.5em;
     position: fixed;
     width: 100%;
-    z-index: 10;
+    z-index: 1000;
     overflow: hidden;
     white-space: nowrap;
     background-color: var(--bg);
@@ -103,8 +103,7 @@ h1 {
     background-color: transparent;
     color: var(--text);
     padding: 0.2em;
-    max-height: 6em;
-    z-index: 10;   
+    max-height: 6em;   
 }
 
 .icon{
@@ -220,56 +219,85 @@ h1 {
 
 .skills {
     display: flex;
-    justify-content: center;
-    align-items: left;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
     color: var(--text);
-    padding: 1.5em; /* Reduced from 2em */
+    padding: 1em;
+    width: 100%;
+}
+
+.skills-content {
+    width: 100%;
+    max-width: 100%;
 }
 
 .skills-categories {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 80px 70px; /* Increased from 60px 50px to 80px 70px */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
 }
 
 .skill-category {
-    break-inside: avoid; /* Prevents a category from splitting across columns */
-    page-break-inside: avoid; /* For older browsers */
+    flex: 0 1 calc(33.333% - 1rem);
+    margin-bottom: 1rem;
+    max-width: calc(33.333% - 1rem);
+    overflow: hidden;
 }
 
 .skill-category h2 {
-    font-size: 1.1em; /* Reduced from 1.2em */
-    margin-bottom: 10px; /* Slightly reduced from 12px */
+    font-size: 1em;
+    margin-bottom: 0.5em;
     color: var(--main);
-    border-bottom: 2px solid var(--main);
-    padding-bottom: 4px; /* Slightly reduced from 5px */
+    display: inline-block;
+    position: relative;
+    padding-bottom: 2px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.skill-category h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: calc(100% + 20px); /* Extends 20px beyond the text */
+    max-width: 100%; /* Ensures it doesn't overflow the container */
+    height: 2px;
+    background-color: var(--main);
 }
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 150px); /* Keep the same width */
-    gap: 35px; /* Increased from 25px to 35px */
-    justify-content: start;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 0.5rem;
+    max-width: 100%;
+    overflow: hidden;
 }
 
-/* Adjust for smaller screens */
-@media (max-width: 992px) {
-    .skills-categories {
-        grid-template-columns: 1fr; /* Single column on smaller screens */
+@media (max-width: 1200px) {
+    .skill-category {
+        flex: 0 1 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
     }
-    
-    .skills-grid {
-        justify-content: center; /* Center align on smaller screens */
-        gap: 40px; /* Increased from 30px to 40px for smaller screens */
+}
+
+@media (max-width: 768px) {
+    .skill-category {
+        flex: 0 1 100%;
+        max-width: 100%;
     }
 }
 
 .skill {
     position: relative;
-    width: 150px; /* Reduced from 180px to 150px */
-    height: 150px; /* Reduced from 180px to 150px */
-    padding: 12px; /* Reduced from 15px to 12px */
+    width: 100%;
+    height: 100px;
+    padding: 0.5em;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -279,52 +307,31 @@ h1 {
     cursor: pointer;
     background-color: var(--bg);
     border: 1px solid rgba(80, 200, 120, 0.3);
-    border-radius: 8px;
+    border-radius: 4px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill:hover {
     transform: scale(1.05);
     border-color: var(--main);
-    box-shadow: 0 4px 8px rgba(80, 200, 120, 0.2);
+    box-shadow: 0 2px 4px rgba(80, 200, 120, 0.2);
 }
 
 .skill img {
-    width: 50px; /* Reduced from 60px to 50px */
-    height: 50px; /* Reduced from 60px to 50px */
+    width: 40px;
+    height: 40px;
     object-fit: contain;
-    margin-bottom: 6px; /* Reduced from 8px to 6px */
+    margin-bottom: 4px;
 }
 
 .skill h3 {
-    font-size: 0.85em; /* Reduced from 0.9em to 0.85em */
-    margin: 3px 0; /* Reduced from 4px to 3px */
+    font-size: 0.7em;
+    margin: 2px 0;
     color: var(--main);
 }
 
 .skill-description {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(24, 24, 24, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    padding: 8px; /* Reduced from 10px to 8px */
-}
-
-.skill:hover .skill-description {
-    opacity: 1;
-}
-
-.skill-description p {
-    font-size: 0.7em; /* Reduced from 0.75em to 0.7em */
-    color: var(--text);
-    margin: 0;
+    display: none;
 }
 
 .overlay {
@@ -340,42 +347,23 @@ h1 {
     align-items: center;
 }
 
-.overlay.active {
-    display: flex;
-}
-
 .overlay-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 500px; /* Adjust this value as needed */
-    width: 90%;
-    max-height: 80vh;
+    background-color: var(--bg);
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 80%;
+    max-height: 80%;
     overflow-y: auto;
-    position: relative;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: var(--text);
 }
 
 .close-overlay {
     position: absolute;
     top: 10px;
-    right: 15px;
+    right: 10px;
     font-size: 24px;
     cursor: pointer;
-    color: #333;
-}
-
-#overlay-text {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
-}
-
-#overlay-text h4 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 20px;
-    color: #2c3e50;
+    color: var(--text);
 }
 
 .experience-wrapper{
@@ -474,73 +462,566 @@ svg {
     margin-bottom: 8px; /* Reduced from 10px */
 }
 
-.experience-item {
-    margin-bottom: 20px;
+.experience-description{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+    font-size: small;
+}
+
+
+.project-gallery{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+
+.contact-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+
+.home-wrapper {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Occupy the height of the viewport */
+    width: 100vw; /* Occupy the width of the viewport */
+}
+
+.home-content {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+#stingrayConstellation {
+    /* Adjust size as needed to fit within .svg-wrapper */
+    max-width: 90%; /* Example to avoid overflow */
+    max-height: 90%; /* Adjust based on your SVG's aspect ratio */
+}
+
+.svg-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+
+svg {
+    width: 90vw;
+    height: auto;
+    top: 1000;
+}
+
+.home-text{
+    color:var(--text);
+}
+
+.skill img {
+    width: 60px; /* Increased from 50px */
+    height: 60px; /* Increased from 50px */
+    object-fit: contain;
+    margin-bottom: 8px; /* Reduced from 10px */
+}
+
+.terminal {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 600px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.8);
     border: 1px solid var(--main);
     border-radius: 5px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    color: var(--text);
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+}
+
+.terminal-content {
+    padding: 10px;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+}
+
+.terminal-input {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin-left: -0.5em;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.terminal-prompt {
+    color: white;
+    margin-right: 5px;
+}
+
+#terminal-command {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    outline: none;
+}
+
+.terminal-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--main);
+    color: var(--bg);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.terminal-button:hover {
+    background-color: white;
+}
+
+.terminal-output {
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.terminal-output .error {
+    color: #ff6b6b;
+}
+
+.terminal-output .success {
+    color: #51cf66;
+}
+
+.terminal-output .info {
+    color: #339af0;
+}
+
+.terminal-output .warning {
+    color: #fcc419;
+}
+
+.terminal-suggestions {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--main);
+    border-radius: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+}
+
+.terminal-suggestion {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.terminal-suggestion:hover {
+    background-color: rgba(80, 200, 120, 0.2);
+}
+
+.skill-category h2 {
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    color: var(--main);
+    display: inline-block;
+    position: relative;
+    padding-bottom: 2px;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.skill-category h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: calc(100% + 20px); /* Extends 20px beyond the text */
+    max-width: 100%; /* Ensures it doesn't overflow the container */
+    height: 2px;
+    background-color: var(--main);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 0.5rem;
+    max-width: 100%;
     overflow: hidden;
 }
 
-.experience-header {
-    background-color: var(--bg);
-    color: var(--main);
-    padding: 15px;
-    cursor: pointer;
+@media (max-width: 1200px) {
+    .skill-category {
+        flex: 0 1 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .skill-category {
+        flex: 0 1 100%;
+        max-width: 100%;
+    }
+}
+
+.skill {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    padding: 0.5em;
+    text-align: center;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--bg);
+    border: 1px solid rgba(80, 200, 120, 0.3);
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill:hover {
+    transform: scale(1.05);
+    border-color: var(--main);
+    box-shadow: 0 2px 4px rgba(80, 200, 120, 0.2);
+}
+
+.skill img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 4px;
+}
+
+.skill h3 {
+    font-size: 0.7em;
+    margin: 2px 0;
+    color: var(--main);
+}
+
+.skill-description {
+    display: none;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
     align-items: center;
 }
 
-.experience-header h2 {
-    margin: 0;
-    font-size: 1.2em;
-}
-
-.toggle-icon {
-    font-size: 1.5em;
-    transition: transform 0.3s ease;
-}
-
-.experience-details {
+.overlay-content {
     background-color: var(--bg);
-    padding: 0 15px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-}
-
-.experience-item.active .experience-details {
-    max-height: 1000px; /* Adjust this value based on your content */
-    padding: 15px;
-}
-
-.experience-item.active .toggle-icon {
-    transform: rotate(45deg);
-}
-
-.skill-details p:first-child {
-    font-family: 'Roboto Mono', monospace;
-    color: #4CAF50;
-    margin-bottom: 10px;
-}
-
-.skill-details .timestamp {
-    display: inline;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+    color: var(--text);
 }
 
 .close-overlay {
     position: absolute;
     top: 10px;
-    right: 15px;
-    font-size: 28px;
-    font-weight: bold;
-    color: #aaa;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.experience-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+
+.experience-title{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 1em;
+    font-size: large;
+    border-top: var(--secondary) 4px double;
+}
+
+.experience-description{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+    font-size: small;
+}
+
+.terminal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.terminal-window {
+    background-color: var(--bg);
+    width: 80%;
+    max-width: 800px;
+    height: 60%;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    background-color: var(--main);
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.terminal-title {
+    color: var(--text);
+}
+
+.terminal-close {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 20px;
     cursor: pointer;
 }
 
-.close-overlay:hover,
-.close-overlay:focus {
-    color: #000;
-    text-decoration: none;
+.terminal-content {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    color: var(--text);
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+}
+
+.terminal-prompt {
+    color: white;
+    margin-right: 5px;
+}
+
+.terminal-input {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    flex-grow: 1;
+    outline: none;
+}
+
+.terminal-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--main);
+    color: var(--bg);
+    border: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+
+.project-gallery{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+
+.contact-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+
+.home-wrapper {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Occupy the height of the viewport */
+    width: 100vw; /* Occupy the width of the viewport */
+}
+
+.home-content {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+#stingrayConstellation {
+    /* Adjust size as needed to fit within .svg-wrapper */
+    max-width: 90%; /* Example to avoid overflow */
+    max-height: 90%; /* Adjust based on your SVG's aspect ratio */
+}
+
+.svg-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+
+svg {
+    width: 90vw;
+    height: auto;
+    top: 1000;
+}
+
+.home-text{
+    color:var(--text);
+}
+
+.skill img {
+    width: 60px; /* Increased from 50px */
+    height: 60px; /* Increased from 50px */
+    object-fit: contain;
+    margin-bottom: 8px; /* Reduced from 10px */
+}
+
+.experience-description{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+    font-size: small;
+}
+
+
+.project-gallery{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+
+.contact-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    color: var(--text);
+    padding: 2em;
+}
+
+.home-wrapper {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Occupy the height of the viewport */
+    width: 100vw; /* Occupy the width of the viewport */
+}
+
+.home-content {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+#stingrayConstellation {
+    /* Adjust size as needed to fit within .svg-wrapper */
+    max-width: 90%; /* Example to avoid overflow */
+    max-height: 90%; /* Adjust based on your SVG's aspect ratio */
+}
+
+.svg-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+
+svg {
+    width: 90vw;
+    height: auto;
+    top: 1000;
+}
+
+.home-text{
+    color:var(--text);
+}
+
+.skill img {
+    width: 60px; /* Increased from 50px */
+    height: 60px; /* Increased from 50px */
+    object-fit: contain;
+    margin-bottom: 8px; /* Reduced from 10px */
 }
