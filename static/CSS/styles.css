@@ -5,6 +5,48 @@
     --text: #FAF9F6;
 }
 
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: var(--text);
+    border-radius: 10px;
+    border: none;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--main);
+    transform: translateY(-2px);
+}
+
+.button img, .button .github-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.github-icon {
+    fill: var(--text);
+    transition: fill 0.3s ease;
+}
+
+.button:hover .github-icon {
+    fill: var(--bg);
+}
+
 body{
     background-color: var(--bg);
     font-family: 'Roboto Mono', monospace;
