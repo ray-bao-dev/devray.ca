@@ -243,13 +243,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         : item;
                 });
         }
-
+        
         if (!partial.includes('/')) {
             const commands = ['help', 'ls', 'cd', 'pwd', 'cat', 'clear'];
             return commands.filter(cmd => cmd.startsWith(partial));
         }
 
         return [];
+
     }
 
     updatePrompt();
