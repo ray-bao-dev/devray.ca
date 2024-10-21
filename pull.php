@@ -1,5 +1,9 @@
 <?php
 // Log the request payload to a file (optional, for debugging)
+
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: ".gmdate("D, d M Y H:i:s",time()+(-1*60))." GMT");
 file_put_contents('github_payload.log', file_get_contents('php://input'));
 
 // Define the path to your project directory
