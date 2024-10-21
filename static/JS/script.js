@@ -125,7 +125,7 @@ function updateTimestamp() {
 function navigateTo(destination) {
     // Ensure the terminal is initialized and visible
     initializeTerminal();
-    
+    //test
     // Focus on the input
     const inputElement = document.querySelector('.terminal-input');
     if (inputElement) {
