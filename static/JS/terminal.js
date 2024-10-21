@@ -11,35 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const fileSystem = {
         '/home/Ray_Bao': {
             type: 'directory',
-            contents: ['about', 'skills', 'projects', 'contact']
+            contents: ['summary.txt', 'resume.pdf', 'skills', 'projects', 'contact']
         },
-        '/home/Ray_Bao/about': {
-            type: 'directory',
-            contents: ['summary.txt', 'resume.pdf']
-        },
+        '/home/Ray_Bao/summary.txt': { type: 'file' },
+        '/home/Ray_Bao/resume.pdf': { type: 'file' },
         '/home/Ray_Bao/skills': {
             type: 'directory',
-            contents: ['web_dev', 'prog_lang', 'db_backend', 'version_ctrl', 'cloud_ai']
-        },
-        '/home/Ray_Bao/skills/web_dev': {
-            type: 'directory',
-            contents: ['html.txt', 'css.txt', 'javascript.txt', 'vue.txt', 'nodejs.txt']
-        },
-        '/home/Ray_Bao/skills/prog_lang': {
-            type: 'directory',
-            contents: ['java.txt', 'cpp.txt', 'python.txt']
-        },
-        '/home/Ray_Bao/skills/db_backend': {
-            type: 'directory',
-            contents: ['mysql.txt', 'php.txt', 'flask.txt']
-        },
-        '/home/Ray_Bao/skills/version_ctrl': {
-            type: 'directory',
-            contents: ['git.txt']
-        },
-        '/home/Ray_Bao/skills/cloud_ai': {
-            type: 'directory',
-            contents: ['aws.txt', 'azure.txt', 'docker.txt', 'openai.txt']
+            contents: ['html.txt', 'css.txt', 'javascript.txt', 'vue.txt', 'python.txt', 'java.txt', 'sql.txt', 'mongodb.txt', 'flask.txt', 'git.txt', 'aws.txt', 'azure.txt', 'docker.txt', 'openai.txt']
         },
         '/home/Ray_Bao/projects': {
             type: 'directory',
@@ -49,33 +27,26 @@ document.addEventListener('DOMContentLoaded', () => {
             type: 'directory',
             contents: ['email.txt', 'linkedin.txt', 'github.txt']
         }
+        // ... add other directories and files as needed
     };
 
     const fileContents = {
-        '/home/Ray_Bao/about/summary.txt': "I'm a 3rd year student currently majoring in Computer Science - Artificial Intelligence with a minor in Economics at McGill University. My strongest area of development is in Full-stack web development, with a focus on back-end scripting. I'm currently seeking full time internships or part-time employment opportunities in software development roles!",
-        '/home/Ray_Bao/about/resume.pdf': "Opening resume...",
-        '/home/Ray_Bao/skills/web_dev/html.txt': "HTML (HyperText Markup Language) is the standard markup language for creating web pages. I have extensive experience in writing semantic and accessible HTML5 code.",
-        '/home/Ray_Bao/skills/web_dev/css.txt': "CSS (Cascading Style Sheets) is used for describing the presentation of a document written in HTML. I'm proficient in modern CSS techniques, including Flexbox and Grid layouts.",
-        '/home/Ray_Bao/skills/web_dev/javascript.txt': "JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification. I have strong skills in both vanilla JavaScript and popular frameworks.",
-        '/home/Ray_Bao/skills/web_dev/vue.txt': "Vue.js is a progressive JavaScript framework for building user interfaces. I have experience in developing responsive and interactive web applications using Vue.js.",
-        '/home/Ray_Bao/skills/web_dev/nodejs.txt': "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. I use Node.js for server-side programming and building scalable network applications.",
-        '/home/Ray_Bao/skills/prog_lang/java.txt': "Java is a general-purpose programming language that is class-based, object-oriented, and designed to have as few implementation dependencies as possible. I have extensive experience in Java development.",
-        '/home/Ray_Bao/skills/prog_lang/cpp.txt': "C++ is a general-purpose programming language created as an extension of the C programming language. I use C++ for system/application software, drivers, client-server applications and embedded firmware.",
-        '/home/Ray_Bao/skills/prog_lang/python.txt': "Python is an interpreted, high-level and general-purpose programming language. I use Python for web development, scientific computing, data analysis, artificial intelligence, and machine learning projects.",
-        '/home/Ray_Bao/skills/db_backend/mysql.txt': "MySQL is an open-source relational database management system. I have experience in designing, implementing, and optimizing MySQL databases for various applications.",
-        '/home/Ray_Bao/skills/db_backend/php.txt': "PHP is a popular general-purpose scripting language that is especially suited to web development. I use PHP for server-side scripting, command-line scripting, and writing desktop applications.",
-        '/home/Ray_Bao/skills/db_backend/flask.txt': "Flask is a lightweight WSGI web application framework in Python. I use Flask for building web applications and APIs quickly and efficiently.",
-        '/home/Ray_Bao/skills/version_ctrl/git.txt': "Git is a distributed version-control system for tracking changes in source code during software development. I use Git for version control and collaborative development in all my projects.",
-        '/home/Ray_Bao/skills/cloud_ai/aws.txt': "Amazon Web Services (AWS) is a comprehensive cloud computing platform. I have experience in deploying and managing applications on various AWS services.",
-        '/home/Ray_Bao/skills/cloud_ai/azure.txt': "Microsoft Azure is a cloud computing platform offering a wide range of services. I have experience working with Azure for building and deploying cloud-based applications.",
-        '/home/Ray_Bao/skills/cloud_ai/docker.txt': "Docker is a platform for developing, shipping, and running applications in containers. I use Docker for creating consistent development environments and deploying applications.",
-        '/home/Ray_Bao/skills/cloud_ai/openai.txt': "OpenAI is an artificial intelligence research laboratory. I have experience working with OpenAI's models and APIs for various AI and machine learning applications.",
-        '/home/Ray_Bao/projects/project1.txt': "Project 1: Personal Portfolio Website",
-        '/home/Ray_Bao/projects/project2.txt': "Project 2: E-commerce Platform",
-        '/home/Ray_Bao/projects/project3.txt': "Project 3: Machine Learning Model for Image Recognition",
-        '/home/Ray_Bao/contact/email.txt': "ray.bao@mail.mcgill.ca",
-        '/home/Ray_Bao/contact/linkedin.txt': "https://www.linkedin.com/in/ray-bao",
-        '/home/Ray_Bao/contact/github.txt': "https://github.com/ray-bao-mcgill"
+        '/home/Ray_Bao/summary.txt': "I'm a 3rd year student currently majoring in Computer Science - Artificial Intelligence with a minor in Economics at McGill University. My strongest area of development is in Full-stack web development, with a focus on back-end scripting. I'm currently seeking full time internships or part-time employment opportunities in software development roles!",
+        '/home/Ray_Bao/resume.pdf': "Opening resume...",
+        '/home/Ray_Bao/skills/html.txt': "HTML (HyperText Markup Language) is the standard markup language for creating web pages. I have extensive experience in writing semantic and accessible HTML5 code.",
+        '/home/Ray_Bao/skills/css.txt': "CSS (Cascading Style Sheets) is used for describing the presentation of a document written in HTML. I'm proficient in modern CSS techniques, including Flexbox and Grid layouts.",
+        '/home/Ray_Bao/skills/javascript.txt': "JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification. I have strong skills in both vanilla JavaScript and popular frameworks.",
+        '/home/Ray_Bao/skills/vue.txt': "Vue.js is a progressive JavaScript framework for building user interfaces. I have experience in developing responsive and interactive web applications using Vue.js.",
+        '/home/Ray_Bao/skills/python.txt': "Python is an interpreted, high-level and general-purpose programming language. I use Python for web development, scientific computing, data analysis, artificial intelligence, and machine learning projects.",
+        '/home/Ray_Bao/skills/java.txt': "Java is a general-purpose programming language that is class-based, object-oriented, and designed to have as few implementation dependencies as possible. I have extensive experience in Java development.",
+        '/home/Ray_Bao/skills/sql.txt': "SQL (Structured Query Language) is used for managing and manipulating relational databases. I'm proficient in writing complex queries and optimizing database performance.",
+        '/home/Ray_Bao/skills/mongodb.txt': "MongoDB is a document-oriented NoSQL database. I have experience in designing and implementing MongoDB databases for various applications.",
+        '/home/Ray_Bao/skills/flask.txt': "Flask is a lightweight WSGI web application framework in Python. I use Flask for building web applications and APIs quickly and efficiently.",
+        '/home/Ray_Bao/skills/git.txt': "Git is a distributed version-control system for tracking changes in source code during software development. I use Git for version control and collaborative development in all my projects.",
+        '/home/Ray_Bao/skills/aws.txt': "Amazon Web Services (AWS) is a comprehensive cloud computing platform. I have experience in deploying and managing applications on various AWS services.",
+        '/home/Ray_Bao/skills/azure.txt': "Microsoft Azure is a cloud computing platform offering a wide range of services. I have experience working with Azure for building and deploying cloud-based applications.",
+        '/home/Ray_Bao/skills/docker.txt': "Docker is a platform for developing, shipping, and running applications in containers. I use Docker for creating consistent development environments and deploying applications.",
+        '/home/Ray_Bao/skills/openai.txt': "OpenAI is an artificial intelligence research laboratory. I have experience working with OpenAI's models and APIs for various AI and machine learning applications."
     };
 
     terminalButton.addEventListener('click', () => {
@@ -147,8 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updatePrompt() {
-        const promptSpan = document.querySelector('.terminal-input-line .terminal-prompt');
-        promptSpan.textContent = `Ray_Bao@devray:${currentDirectory}$`;
+        const promptElement = document.querySelector('.prompt');
+        if (promptElement) {
+            promptElement.textContent = `[raybao@devray ${currentDirectory}]$ `;
+        }
     }
 
     function processCommand(command) {
@@ -178,7 +151,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function ls(path) {
         const targetPath = path ? normalizePath(`${currentDirectory}/${path}`) : currentDirectory;
         if (fileSystem[targetPath]) {
-            return fileSystem[targetPath].contents.join('  ');
+            return fileSystem[targetPath].contents.map(item => {
+                const itemPath = `${targetPath}/${item}`;
+                if (fileSystem[itemPath] && fileSystem[itemPath].type === 'directory') {
+                    return item + '/';
+                } else {
+                    return item;
+                }
+            }).join('  ');
         } else {
             return `ls: cannot access '${path}': No such file or directory`;
         }
@@ -187,6 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function cd(path) {
         if (!path || path === '~') {
             currentDirectory = '/home/Ray_Bao';
+            showSection('home-wrapper');
             return '';
         }
         
@@ -195,6 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (fileSystem[newPath] && fileSystem[newPath].type === 'directory') {
             currentDirectory = newPath;
+            const section = newPath.split('/').pop();
+            showSection(section === 'Ray_Bao' ? 'home-wrapper' : `${section}-wrapper`);
             return '';
         } else {
             return `cd: ${path}: No such directory`;
@@ -251,6 +234,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return [];
 
+    }
+
+    function showSection(section) {
+        // Hide all sections
+        document.querySelectorAll('.section-wrapper').forEach(el => {
+            el.style.display = 'none';
+            el.classList.remove('show');
+        });
+
+        // Show the selected section
+        const sectionEl = document.querySelector(`.${section}`);
+        if (sectionEl) {
+            sectionEl.style.display = 'flex';
+            // Use setTimeout to ensure the display change has taken effect before adding the 'show' class
+            setTimeout(() => {
+                sectionEl.classList.add('show');
+            }, 10);
+        }
+
+        // Update the prompt
+        updatePrompt();
     }
 
     updatePrompt();
