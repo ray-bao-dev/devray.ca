@@ -36,23 +36,23 @@
                 <div class="icon-text">~/Ray_Bao</div>
             </div>
             <div class="nav-list">
-                    <div onclick="showSection('home-wrapper')" class="nav-item">
-                        <p class="nav-text">/ about</p>
-                    </div>
-                    <div class="nav-item" onclick="showSection('skills')">
-                        <p class="nav-text">/ skills</p>
-                    </div>
-                    <div onclick="showSection('project-gallery')" class="nav-item">
-                        <p class="nav-text">/ projects</p>
-                    </div>
-                    <div onclick="showSection('contact-wrapper')" class="nav-item">
-                        <p class="nav-text">/ contact</p>
-                    </div>
+                <div class="nav-item" onclick="navigateTo('~')">
+                    <p class="nav-text">/ home</p>
+                </div>
+                <div class="nav-item" onclick="navigateTo('skills')">
+                    <p class="nav-text">/ skills</p>
+                </div>
+                <div class="nav-item" onclick="navigateTo('projects')">
+                    <p class="nav-text">/ projects</p>
+                </div>
+                <div class="nav-item" onclick="navigateTo('contact')">
+                    <p class="nav-text">/ contact</p>
+                </div>
             </div>
         </div>
     </div>
     <div id="content" class="content">
-        <div class="home-wrapper">
+        <div class="home-wrapper section-wrapper">
             <div class="home-content">
                 <div class="svg-wrapper">
                     <svg fill="#000000" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -83,11 +83,11 @@
                 </div>
             </div>
         </div>
-        <div class="skills" style="display: none">
+        <div class="skills-wrapper section-wrapper" style="display: none">
             <div class="skills-content">
                 <div class="skills-text">
-                    <br><br>
-                    <p><div class="timestamp"></div> [raybao@devray]: ~/Ray_Bao/$ cd skills</p>
+                    <br><br><br>
+                    <p><div class="timestamp"></div><div class="command">[raybao@devray]: ~/Ray_Bao/$ cd skills</div></p>
                     <div class="header-title">
                         <h1>technical proficiency</h1>
                     </div>
@@ -302,17 +302,17 @@
             </div>
         </div>
 
-        <div class="project-gallery" style="display: none">
-            <div class="project-content">
-                <br><br>
-                <p><div class="timestamp"></div> [raybao@devray]: ~/Ray_Bao/$ cd projects</p>
+        <div class="projects-wrapper section-wrapper" style="display: none">
+            <div class="project-text">
+                <br><br><br>
+                <p><div class="timestamp"></div><div class="command">[raybao@devray]: ~/Ray_Bao/$ cd projects</div></p>
                 <div class="header-title">
                     <h1>past projects</h1>
                 </div>
             </div>
         </div>
 
-        <div class="contact-wrapper" style="display: none">
+        <div class="contact-wrapper section-wrapper" style="display: none">
             <div class="contact-content">
                 <div class="contact-text">
                     <br><br><br>
@@ -330,7 +330,15 @@
         </svg>
     </button>
 
-
+    <div class="terminal-wrapper" style="display: none;">
+        <div class="terminal">
+            <div class="terminal-output"></div>
+            <div class="terminal-input-line">
+                <span class="prompt"></span>
+                <input type="text" class="terminal-input" autofocus>
+            </div>
+        </div>
+    </div>
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
