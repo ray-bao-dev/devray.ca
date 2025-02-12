@@ -42,7 +42,6 @@
     fill: var(--text);
     transition: fill 0.3s ease;
 }
-
 .button:hover .github-icon {
     fill: var(--bg);
 }
