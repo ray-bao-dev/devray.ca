@@ -1,0 +1,36 @@
+.contact-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  color: var(--text);
+  padding: 6em 2em 2em 2em;
+  min-height: 100vh;
+}
+
+.contact-header {
+  padding: 1em;
+}
+
+.contact-content {
+  padding: 1em;
+  width: 100%;
+}
+
+.placeholder-text {
+  color: var(--text);
+  margin-top: 2em;
+}
+
+@media (max-width: 768px) {
+  .contact-wrapper .header-title h1 {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-wrapper .header-title h1 {
+    font-size: 2em;
+  }
+}
+
