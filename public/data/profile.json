@@ -1,0 +1,44 @@
+{
+  "name": "Ray Bao",
+  "title": "Software Developer",
+  "location": "Montreal, Quebec",
+  "education": {
+    "degree": "B.Sc. Computer Science (AI)",
+    "school": "McGill University",
+    "minor": "Economics"
+  },
+  "bio": "Currently working as a Software Developer at Ploomba, building AI-powered agricultural platforms. Previously interned at Microchip Technologies working on spaceflight computing for NASA JPL.",
+  "languages": ["English", "French", "Mandarin"],
+  "contact": {
+    "email": "ray6bao@gmail.com",
+    "phone": "613-298-7995",
+    "linkedin": "https://linkedin.com/in/ray-bao-061728216/",
+    "github": "https://github.com/ray-bao-mcgill",
+    "website": "https://devray.ca"
+  },
+  "skills": {
+    "languages": [
+      { "name": "Python", "level": "Expert" },
+      { "name": "JavaScript", "level": "Expert" },
+      { "name": "Java", "level": "Advanced" },
+      { "name": "C", "level": "Advanced" },
+      { "name": "TypeScript", "level": "Proficient" },
+      { "name": "PHP", "level": "Proficient" },
+      { "name": "SQL", "level": "Proficient" },
+      { "name": "Golang", "level": "Familiar" },
+      { "name": "Ruby", "level": "Familiar" },
+      { "name": "HTML/CSS", "level": "Expert" }
+    ],
+    "frameworks": {
+      "Web Development": ["React", "Vue.js", "Node.js", "Flask", "Mantine"],
+      "Data Science & AI": ["scikit-learn", "pandas", "numpy", "spaCy", "BeautifulSoup4"],
+      "Other": ["Mako", "SWIG"]
+    },
+    "tools": {
+      "DevOps & Infrastructure": ["Docker", "ContainerLab", "Linux", "Git", "CI/CD Pipelines"],
+      "Cloud & Databases": ["DigitalOcean", "MySQL", "Apache/XAMPP"],
+      "Development": ["Atlassian (JIRA, Bitbucket)", "Jenkins", "Agile Development", "Responsive Design"]
+    }
+  }
+}
+

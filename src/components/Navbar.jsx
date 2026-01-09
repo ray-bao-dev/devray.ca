@@ -6,7 +6,7 @@ function Navbar() {
     <nav className="nav-wrapper">
       <div className="navbar">
         <NavLink to="/" className="navbar-icon">
-          <div className="icon-text">~/Ray_Bao</div>
+          <span className="icon-text">~/Ray_Bao</span>
         </NavLink>
         <div className="nav-list">
           <NavLink to="/" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} end>
@@ -25,4 +25,3 @@ function Navbar() {
 }
 
 export default Navbar
-

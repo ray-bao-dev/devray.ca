@@ -1,0 +1,81 @@
+{
+  "hackathon": [
+    {
+      "id": "gaia",
+      "title": "GAIA",
+      "subtitle": "AI-Driven Emergent Narrative Game",
+      "award": "Best Use of Generative AI",
+      "event": "McHacks 12",
+      "date": "January 2025",
+      "description": "Led development of a fully AI-driven emergent narrative game using OpenAI API to procedurally generate dynamic storylines and adaptive gameplay. Employed DALL-E and Minimax APIs for multithreaded AI video rendering.",
+      "features": [
+        "Procedurally generated dynamic storylines",
+        "Adaptive gameplay that responds to player choices",
+        "Multithreaded AI video rendering",
+        "DALL-E integration for visual generation"
+      ],
+      "tech": ["OpenAI API", "DALL-E", "Minimax", "Python"],
+      "github": "",
+      "live": "",
+      "devpost": ""
+    },
+    {
+      "id": "sparky",
+      "title": "Sparky",
+      "subtitle": "Robot Productivity Companion",
+      "award": "Best Use of Hardware",
+      "event": "CodeJam 14",
+      "date": "November 2024",
+      "description": "Built firmware and software for a robot productivity companion that tracks mobile phone usage using computer vision with OpenCV. Used virtualized serial communication and webcam feeds to emulate Arduino camera inputs.",
+      "features": [
+        "Phone usage tracking via computer vision",
+        "OpenCV integration for real-time detection",
+        "Virtualized serial communication",
+        "Future-proof camera upgrade compatibility"
+      ],
+      "tech": ["Arduino", "OpenCV", "Python", "Computer Vision"],
+      "github": "",
+      "live": "",
+      "devpost": ""
+    },
+    {
+      "id": "wikichess",
+      "title": "WikiChess",
+      "subtitle": "Wikipedia Racing Chess Game",
+      "award": "Best Game Hack",
+      "event": "HackThe6ix",
+      "date": "August 2024",
+      "description": "Led development of a web-based game inspired by Wikiracer. Used BeautifulSoup4 for web scraping and spaCy for natural language processing and semantic comparison.",
+      "features": [
+        "Web scraping for Wikipedia content",
+        "Natural language processing for semantic comparison",
+        "Unique gameplay combining chess + wiki racing",
+        "Real-time multiplayer support"
+      ],
+      "tech": ["Flask", "BeautifulSoup4", "spaCy", "JavaScript"],
+      "github": "",
+      "live": "",
+      "devpost": ""
+    }
+  ],
+  "personal": [
+    {
+      "id": "portfolio",
+      "title": "devray.ca",
+      "subtitle": "Personal Portfolio Website",
+      "date": "",
+      "description": "This portfolio website! Built with React and Vite, featuring a terminal-inspired design with an interactive CLI, file system navigation, and smooth animations.",
+      "features": [
+        "Interactive terminal emulator",
+        "File system navigation",
+        "Command history & tab completion",
+        "Responsive design",
+        "React Router integration"
+      ],
+      "tech": ["React", "Vite", "React Router", "CSS"],
+      "github": "https://github.com/ray-bao-mcgill",
+      "live": "https://devray.ca"
+    }
+  ]
+}
+

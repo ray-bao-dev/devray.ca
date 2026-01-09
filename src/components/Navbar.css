@@ -6,8 +6,6 @@
   position: fixed;
   width: 100%;
   z-index: 1000;
-  overflow: hidden;
-  white-space: nowrap;
   background-color: var(--bg);
   border-bottom: 4px solid var(--main);
 }
@@ -15,50 +13,41 @@
 .navbar {
   display: flex;
   align-items: center;
-  background-color: transparent;
-  color: var(--text);
-  padding: 0.2em;
-  max-height: 6em;
   width: 100%;
+  padding: 0.2em;
 }
 
 .navbar-icon {
   display: flex;
   padding: 0.2em;
   align-items: center;
-  z-index: 100;
   cursor: pointer;
-  text-decoration: none;
   color: var(--text);
+  transition: color 0.3s ease;
+}
+
+.navbar-icon:hover {
+  color: var(--main);
 }
 
 .icon-text {
   padding: 0.5em;
-  justify-self: center;
-  box-sizing: border-box;
 }
 
 .nav-list {
   display: flex;
-  justify-content: center;
   position: absolute;
   right: 0;
   list-style: none;
-  margin: 0;
   padding: 2em;
+  gap: 1rem;
 }
 
 .nav-item {
-  display: inline-block;
   position: relative;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  padding-right: 0.2rem;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  cursor: pointer;
-  text-decoration: none;
+  padding: 0.2em 1rem;
   color: var(--text);
+  transition: color 0.3s ease;
 }
 
 .nav-item::after {
@@ -69,7 +58,7 @@
   width: 0%;
   height: 2px;
   background-color: var(--main);
-  transition: width 0.5s ease;
+  transition: width 0.4s ease;
 }
 
 .nav-item:hover::after,
@@ -77,24 +66,28 @@
   width: 100%;
 }
 
+.nav-item:hover,
+.nav-item.active {
+  color: var(--main);
+}
+
 .nav-text {
-  margin: 0;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
   .nav-list {
     padding: 1em;
+    gap: 0.5rem;
   }
 
   .nav-item {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    padding: 0.2em 0.5rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .nav-list {
     display: none;
   }
 }
-
