@@ -5,7 +5,9 @@
   "education": {
     "degree": "B.Sc. Computer Science (AI)",
     "school": "McGill University",
-    "minor": "Economics"
+    "minor": "Economics",
+    "startDate": "Sep 2022",
+    "endDate": "Present"
   },
   "bio": "Currently working as a Software Developer at Ploomba, building AI-powered agricultural platforms. Previously interned at Microchip Technologies working on spaceflight computing for NASA JPL.",
   "languages": ["English", "French", "Mandarin"],
@@ -16,6 +18,71 @@
     "github": "https://github.com/ray-bao-mcgill",
     "website": "https://devray.ca"
   },
+  "experience": [
+    {
+      "id": "microchip",
+      "title": "Software Engineer Intern",
+      "company": "Microchip Technologies",
+      "location": "Remote",
+      "startDate": "Jan 2025",
+      "endDate": "May 2025",
+      "current": false,
+      "description": "Developed tools for NASA JPL's spaceflight computing systems.",
+      "highlights": [
+        "Developed a tool using C, Python, Mako templates, and SWIG to generate device configuration binaries for the Microchip PIC64-HPSC (High Performance Spaceflight Computing) MPUs for NASA JPL",
+        "Created and maintained Jenkins artifacts for the device configurator, distributing to other teams and coordinating development in an Agile-DevOps environment using JIRA and Bitbucket",
+        "Developed firmware code and tests verified on custom software and hardware emulation platforms through a Bitbucket/Jenkins pipeline"
+      ],
+      "tech": ["C", "Python", "Mako", "SWIG", "Jenkins", "JIRA", "Bitbucket"]
+    },
+    {
+      "id": "ploomba",
+      "title": "Software Developer",
+      "company": "Ploomba",
+      "location": "Montreal, QC",
+      "startDate": "May 2025",
+      "endDate": "Present",
+      "current": true,
+      "description": "Building AI-powered agricultural platforms for farmers.",
+      "highlights": [
+        "Contributed to development of an AI-powered agricultural platform supporting farmers through intelligent insights and robotic automation",
+        "Designed and implemented robust logging and data management systems interacting with over 10,000 database entries, enabling efficient monitoring, debugging, and system scalability",
+        "Utilized Node.js, Mantine, and Yarn to build and maintain application components emphasizing performance"
+      ],
+      "tech": ["Node.js", "Mantine", "Yarn", "React", "PostgreSQL"]
+    },
+    {
+      "id": "nokia",
+      "title": "Future Tech Intern",
+      "company": "Nokia",
+      "location": "Ottawa, ON",
+      "startDate": "Jun 2021",
+      "endDate": "Aug 2021",
+      "current": false,
+      "description": "Automated network topology testing for SR Linux systems.",
+      "highlights": [
+        "Worked as a PHP developer alongside a network architect to automate testing for proof-of-concept network topologies on Nokia SR Linux Network Operating System",
+        "Deployed virtual full and half mesh network topologies hosted on DigitalOcean cloud infrastructure using IP networking and routing in containerized SR Linux routers with ContainerLab and Docker",
+        "Integrated ContainerLab with PHP to allow proof-of-concept network topologies to be constructed and deployed from a user-friendly web GUI, improving deployment speed by 50%"
+      ],
+      "tech": ["PHP", "Docker", "ContainerLab", "DigitalOcean", "Linux", "Networking"]
+    },
+    {
+      "id": "digiterra",
+      "title": "Full Stack Web Developer",
+      "company": "Digiterra Interactive",
+      "location": "Ottawa, ON",
+      "startDate": "Jun 2020",
+      "endDate": "Jul 2020",
+      "current": false,
+      "description": "Co-op position building web applications and payment systems.",
+      "highlights": [
+        "Completed front-end interface design using HTML, JavaScript, and CSS to improve user experience",
+        "Integrated MySQL with PHP on an Apache/XAMPP stack and implemented PayPal REST API calls to deliver a functioning subscription service"
+      ],
+      "tech": ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "XAMPP", "PayPal API"]
+    }
+  ],
   "skills": {
     "languages": [
       { "name": "Python", "level": "Expert" },
@@ -41,4 +108,3 @@
     }
   }
 }
-

@@ -4,7 +4,8 @@ import {
   formatProjectForTerminal,
   formatProfileForTerminal,
   formatSkillsForTerminal,
-  formatContactForTerminal
+  formatContactForTerminal,
+  formatExperienceForTerminal
 } from '../data/dataService'
 
 // Cache for dynamic file system
@@ -19,7 +20,7 @@ export const buildFileSystem = async () => {
   const fileSystem = {
     '/home/Ray_Bao': {
       type: 'directory',
-      contents: ['about.txt', 'resume.pdf', 'skills', 'projects', 'contact']
+      contents: ['about.txt', 'resume.pdf', 'skills', 'projects', 'career', 'contact']
     },
     '/home/Ray_Bao/about.txt': { type: 'file' },
     '/home/Ray_Bao/resume.pdf': { type: 'file' },
@@ -51,6 +52,12 @@ export const buildFileSystem = async () => {
       contents: projects.personal.map(p => `${p.id}.txt`)
     },
     
+    // Career directory
+    '/home/Ray_Bao/career': {
+      type: 'directory',
+      contents: profile.experience.map(e => `${e.id}.txt`)
+    },
+    
     // Contact directory
     '/home/Ray_Bao/contact': {
       type: 'directory',
@@ -70,6 +77,11 @@ export const buildFileSystem = async () => {
   // Add personal project files
   projects.personal.forEach(p => {
     fileSystem[`/home/Ray_Bao/projects/personal/${p.id}.txt`] = { type: 'file' }
+  })
+  
+  // Add career/experience files
+  profile.experience.forEach(e => {
+    fileSystem[`/home/Ray_Bao/career/${e.id}.txt`] = { type: 'file' }
   })
   
   // Build file contents
@@ -95,6 +107,11 @@ export const buildFileSystem = async () => {
     fileContents[`/home/Ray_Bao/projects/personal/${p.id}.txt`] = formatProjectForTerminal(p, false)
   })
   
+  // Add career/experience contents
+  profile.experience.forEach(e => {
+    fileContents[`/home/Ray_Bao/career/${e.id}.txt`] = formatExperienceForTerminal(e)
+  })
+  
   dynamicFileSystem = fileSystem
   dynamicFileContents = fileContents
   
@@ -105,7 +122,7 @@ export const buildFileSystem = async () => {
 export let fileSystem = {
   '/home/Ray_Bao': {
     type: 'directory',
-    contents: ['about.txt', 'resume.pdf', 'skills', 'projects', 'contact']
+    contents: ['about.txt', 'resume.pdf', 'skills', 'projects', 'career', 'contact']
   },
   '/home/Ray_Bao/about.txt': { type: 'file' },
   '/home/Ray_Bao/resume.pdf': { type: 'file' },
@@ -125,6 +142,10 @@ export let fileSystem = {
     contents: []
   },
   '/home/Ray_Bao/projects/personal': {
+    type: 'directory',
+    contents: []
+  },
+  '/home/Ray_Bao/career': {
     type: 'directory',
     contents: []
   },
@@ -190,11 +211,13 @@ export const getFileContent = (path) => {
 export const directoryToRoute = {
   '/home/Ray_Bao': '/',
   '/home/Ray_Bao/projects': '/projects',
+  '/home/Ray_Bao/career': '/career',
   '/home/Ray_Bao/contact': '/contact'
 }
 
 export const routeToDirectory = {
   '/': '/home/Ray_Bao',
   '/projects': '/home/Ray_Bao/projects',
+  '/career': '/home/Ray_Bao/career',
   '/contact': '/home/Ray_Bao/contact'
 }

@@ -45,23 +45,27 @@ export const getProjectById = async (id) => {
 // Format project for terminal display
 export const formatProjectForTerminal = (project, isHackathon = false) => {
   const lines = []
-  const width = 62
+  const width = 44
   const border = '═'.repeat(width)
   
   lines.push(`╔${border}╗`)
-  lines.push(`║  ${project.title} - ${project.subtitle}`.padEnd(width + 1) + '║')
+  lines.push(`║  ${project.title}`.padEnd(width + 1) + '║')
   
   if (isHackathon && project.award) {
-    lines.push(`║  [WINNER] ${project.event} (${project.award})`.padEnd(width + 1) + '║')
+    lines.push(`║  ${project.event}`.padEnd(width + 1) + '║')
   }
   
   lines.push(`╚${border}╝`)
   lines.push('')
   
+  if (isHackathon && project.award) {
+    lines.push(`Award: ${project.award}`)
+  }
+  
   if (project.date) {
     lines.push(`Date: ${project.date}`)
-    lines.push('')
   }
+  lines.push('')
   
   lines.push('Description:')
   lines.push('────────────')
@@ -70,7 +74,7 @@ export const formatProjectForTerminal = (project, isHackathon = false) => {
   const words = project.description.split(' ')
   let currentLine = ''
   for (const word of words) {
-    if ((currentLine + ' ' + word).length > 60) {
+    if ((currentLine + ' ' + word).length > 44) {
       lines.push(currentLine)
       currentLine = word
     } else {
@@ -80,21 +84,14 @@ export const formatProjectForTerminal = (project, isHackathon = false) => {
   if (currentLine) lines.push(currentLine)
   
   lines.push('')
-  lines.push('Key Features:')
-  project.features.forEach(f => lines.push(`  > ${f}`))
-  
-  lines.push('')
   lines.push('Tech Stack:')
-  project.tech.forEach(t => lines.push(`  > ${t}`))
+  lines.push(`  ${project.tech.join(', ')}`)
   
   if (project.github || project.live || project.devpost) {
     lines.push('')
     if (project.github) lines.push(`GitHub: ${project.github}`)
     if (project.live) lines.push(`Live: ${project.live}`)
     if (project.devpost) lines.push(`Devpost: ${project.devpost}`)
-  } else {
-    lines.push('')
-    lines.push('Link: [Coming soon]')
   }
   
   return lines.join('\n')
@@ -103,7 +100,7 @@ export const formatProjectForTerminal = (project, isHackathon = false) => {
 // Format profile for terminal display
 export const formatProfileForTerminal = (profile) => {
   const lines = []
-  const width = 62
+  const width = 44
   const border = '═'.repeat(width)
   
   lines.push(`╔${border}╗`)
@@ -112,7 +109,8 @@ export const formatProfileForTerminal = (profile) => {
   lines.push(`╚${border}╝`)
   lines.push('')
   lines.push(`Location: ${profile.location}`)
-  lines.push(`Education: ${profile.education.degree} @ ${profile.education.school}`)
+  lines.push(`Education: ${profile.education.degree}`)
+  lines.push(`           @ ${profile.education.school}`)
   lines.push(`           Minor: ${profile.education.minor}`)
   lines.push('')
   
@@ -120,7 +118,7 @@ export const formatProfileForTerminal = (profile) => {
   const words = profile.bio.split(' ')
   let currentLine = ''
   for (const word of words) {
-    if ((currentLine + ' ' + word).length > 60) {
+    if ((currentLine + ' ' + word).length > 44) {
       lines.push(currentLine)
       currentLine = word
     } else {
@@ -132,11 +130,11 @@ export const formatProfileForTerminal = (profile) => {
   lines.push('')
   lines.push(`Languages: ${profile.languages.join(', ')}`)
   lines.push('')
-  lines.push('━'.repeat(62))
-  lines.push("Type 'cat resume.pdf' to view my full resume")
-  lines.push("Type 'cd projects' to see what I've built")
+  lines.push('━'.repeat(44))
+  lines.push("Type 'cat resume.pdf' for resume")
+  lines.push("Type 'cd projects' to see my work")
   lines.push("Type 'cd contact' to get in touch")
-  lines.push('━'.repeat(62))
+  lines.push('━'.repeat(44))
   
   return lines.join('\n')
 }
@@ -151,15 +149,15 @@ export const formatSkillsForTerminal = (skills, category) => {
     lines.push('')
     
     const levelBars = {
-      'Expert': '████████████████████',
-      'Advanced': '████████████████░░░░',
-      'Proficient': '████████████░░░░░░░░',
-      'Familiar': '████████░░░░░░░░░░░░'
+      'Expert': '██████████',
+      'Advanced': '████████░░',
+      'Proficient': '██████░░░░',
+      'Familiar': '████░░░░░░'
     }
     
     skills.languages.forEach(lang => {
-      const bar = levelBars[lang.level] || '████████░░░░░░░░░░░░'
-      lines.push(`> ${lang.name.padEnd(12)} ${bar}  ${lang.level}`)
+      const bar = levelBars[lang.level] || '████░░░░░░'
+      lines.push(`> ${lang.name.padEnd(10)} ${bar} ${lang.level}`)
     })
   } else if (category === 'frameworks') {
     lines.push('Frameworks & Libraries')
@@ -168,7 +166,7 @@ export const formatSkillsForTerminal = (skills, category) => {
     
     Object.entries(skills.frameworks).forEach(([group, items]) => {
       lines.push(`${group}:`)
-      items.forEach(item => lines.push(`  > ${item}`))
+      lines.push(`  ${items.join(', ')}`)
       lines.push('')
     })
   } else if (category === 'tools') {
@@ -178,7 +176,7 @@ export const formatSkillsForTerminal = (skills, category) => {
     
     Object.entries(skills.tools).forEach(([group, items]) => {
       lines.push(`${group}:`)
-      items.forEach(item => lines.push(`  > ${item}`))
+      lines.push(`  ${items.join(', ')}`)
       lines.push('')
     })
   }
@@ -234,6 +232,57 @@ export const formatContactForTerminal = (contact, type) => {
       lines.push('  > Technical consultations')
       break
   }
+  
+  return lines.join('\n')
+}
+
+// Format experience/job for terminal
+export const formatExperienceForTerminal = (job) => {
+  const lines = []
+  const width = 44
+  const border = '═'.repeat(width)
+  
+  lines.push(`╔${border}╗`)
+  lines.push(`║  ${job.title}`.padEnd(width + 1) + '║')
+  lines.push(`║  ${job.company} | ${job.location}`.padEnd(width + 1) + '║')
+  lines.push(`╚${border}╝`)
+  lines.push('')
+  lines.push(`Duration: ${job.startDate} - ${job.endDate}${job.current ? ' (Current)' : ''}`)
+  lines.push('')
+  lines.push('Description:')
+  lines.push('────────────')
+  
+  // Word wrap description
+  const descWords = job.description.split(' ')
+  let descLine = ''
+  for (const word of descWords) {
+    if ((descLine + ' ' + word).length > 44) {
+      lines.push(descLine)
+      descLine = word
+    } else {
+      descLine = descLine ? descLine + ' ' + word : word
+    }
+  }
+  if (descLine) lines.push(descLine)
+  
+  lines.push('')
+  lines.push('Key Contributions:')
+  job.highlights.forEach(h => {
+    const words = h.split(' ')
+    let currentLine = '  > '
+    for (const word of words) {
+      if ((currentLine + ' ' + word).length > 44) {
+        lines.push(currentLine)
+        currentLine = '    ' + word
+      } else {
+        currentLine = currentLine + (currentLine === '  > ' ? '' : ' ') + word
+      }
+    }
+    if (currentLine.trim()) lines.push(currentLine)
+  })
+  lines.push('')
+  lines.push('Tech Used:')
+  lines.push(`  ${job.tech.join(', ')}`)
   
   return lines.join('\n')
 }

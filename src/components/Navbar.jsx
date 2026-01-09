@@ -12,6 +12,9 @@ function Navbar() {
           <NavLink to="/" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} end>
             <span className="nav-text">/ home</span>
           </NavLink>
+          <NavLink to="/career" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <span className="nav-text">/ career</span>
+          </NavLink>
           <NavLink to="/projects" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
             <span className="nav-text">/ projects</span>
           </NavLink>
